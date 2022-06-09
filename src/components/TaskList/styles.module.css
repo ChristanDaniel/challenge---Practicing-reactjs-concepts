@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  width: 736px;
+  margin-top: 24px;
+  padding: 1rem;
+  gap: 0.875rem;
+
+  background-color: var(--gray-500);
+  border-radius: 8px;
+}
+
+.container input[type="radio"] {
+  margin-top: 0.358rem;
+}
+.container p {
+  font-size: 0.875rem;
+  color: var(--gray-100);
+  font-weight: 400;
+
+  max-width: 39.5rem;
+}
+
+.container button {
+  margin-top: 0.2rem;
+
+  height: 16px;
+  width: 16px;
+  border: 0;
+  background: transparent;
+
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.container svg {
+  color: var(--gray-300);
+}
+.container svg:hover {
+  color: var(--danger);
+}
