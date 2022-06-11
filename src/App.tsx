@@ -2,9 +2,10 @@ import { Header } from "./components/Header";
 import { SubmitTask } from "./components/submitTask";
 import { TaskList } from "./components/TaskList";
 
+import { FormEvent, useState } from "react";
+
 import "./global.css";
 import styles from "./app.module.css";
-import { FormEvent, useState } from "react";
 
 type IListTaskCreatedProps = {
   id: number;
@@ -30,15 +31,13 @@ function App() {
     }
   }
 
-  const handleDeleteTask = (taskSelectId: number, taskIndex: number) => {
-    listTaskCreated.map(task => {
-      if(task.id === taskSelectId) {
-        listTaskCreated.splice(0, taskIndex)
-      }
+  const handleDeleteTask = (taskSelectId: number) => {
+    const newListTask = listTaskCreated.filter(value => {
+      return value.id !== taskSelectId
     })
-  }
 
-  console.log('', listTaskCreated)
+    setListTaskCreated(newListTask)
+  }
 
   return (
     <body className={styles.body}>
@@ -58,10 +57,14 @@ function App() {
           </p>
         </header>
         <div>
-          <TaskList />
-          <TaskList />
-          <TaskList />
-          <TaskList />
+          {listTaskCreated.map((task, index) => (
+            <TaskList
+              key={task.id}
+              listTaskCreated={task}
+              handleDeleteTask={handleDeleteTask}
+              taskIndex={index}
+            />
+          ))}
         </div>
       </div>
     </body>

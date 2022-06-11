@@ -1,4 +1,5 @@
-import { ChangeEvent, FormEvent } from 'react';
+import { FormEvent } from 'react';
+
 import styles from './styles.module.css'
 
 import { AiOutlinePlusCircle } from 'react-icons/ai';
@@ -11,7 +12,7 @@ interface ISubmitTaskProps {
 
 export function SubmitTask({ hadleSubmitTask, addNewTaskInput, setAddNewTaskInput }: ISubmitTaskProps) {
   return (
-    <form className={styles.container} onSubmit={event => hadleSubmitTask(event)} >
+    <form className={styles.container} onSubmit={event => hadleSubmitTask(event)}>
       <input 
         placeholder='Adicione uma nova tarefa'
         onChange={event => setAddNewTaskInput(event.target.value)}
